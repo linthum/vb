@@ -60,7 +60,6 @@ For Each wks In Worksheets
          SheetName = WorksheetFunction.Trim(wks.Name)
         'ActiveSheet.Range("H3").Value = staffName
         staffNames_Arr.Add StaffName
-        'Debug.Print wks.Name
         
         Do While (counter < nDays)
             ActiveSheet.Cells(i, 1).Value = StaffName
@@ -78,71 +77,9 @@ For Each wks In Worksheets
      End If
 Next wks
 
-'Debug.Print lastRow
-'counter = 3
-
-
-'Dim nWeeks As Integer
-'nWeeks = (dateDiff("ww", BudgetDate, endDate, vbMonday, vbUseSystem)) + 1
-'
-'Cells(2, "i").Value = Cells(2, "b").Value - Weekday(Cells(2, "b"), vbMonday) + 1
-'Dim lastCol As Integer
-'
-'For i = 1 To nWeeks
-'    Cells(2, 9 + i).Value = CDate(Cells(2, 9 + i - 1)) + 7
-'Next i
-'
-'lastCol = i + 9 - 1
-'Debug.Print lastCol
-'
-'rowEnd = ActiveSheet.Cells(Rows.Count, "A").End(xlUp).Row
-'
-'Set sumRange = Range("C2:C" & rowEnd)
-'Set criteriaRange1 = Range("A2:A" & rowEnd)
-'Set criteriaRange2 = Range("B2:B" & rowEnd)
-'
-'For i = 1 To staffNames_Arr.Count
-'    Cells(counter, "H") = staffNames_Arr(i)
-'    'cells(counter,"i") = =SUMIFS(" & $C$2:$C$37 "," & $A$2:$A$37 & "," & $H3,$B$2:$B$37 "," & <"&$J$2)"
-'    counter = counter + 1
-'Next i
-'counter = 0
-'Dim rCntr As Integer
-'
-'rCntr = 3
-'Dim colCounter As Integer
-'colCounter = 0
-'rowEnd = ActiveSheet.Cells(Rows.Count, "H").End(xlUp).Row
-'For i = 9 To lastCol
-'    For rCntr = 3 To rowEnd
-'        counter = counter + 1
-'        Debug.Print "=SUMIFS(" & sumRange.Address & "," & _
-'            criteriaRange1.Address & "," & Cells(rCntr, "h").Address & "," & _
-'            criteriaRange2.Address & "," & Chr(34) & "<&" & Chr(34) & Cells(rCntr - 1, i + 1).Address & ")"
-'
-'        Cells(rCntr, i).Formula = "=SUMIFS(" & sumRange.Address & "," & _
-'            criteriaRange1.Address & "," & Cells(rCntr, "h").Address & "," & _
-'            criteriaRange2.Address & "," & Chr(34) & "<" & Chr(34) & "&" & Cells(2, i + 1 + colCounter).Address & ")"
-'
-'    Next rCntr
-'
-'
-'Next i
-
-
-
-'If lastRow = 0 Then
-'
-'Else
 Sheets("weekly").Visible = True
    Set weeklyPivotRange = Range(Cells(1, 1), Cells(lastRow, "d"))
- 
     Call createWeeklyPivot(weeklyPivotRange)
-
-'End If
-
-
-
 End Sub
 
 
@@ -183,5 +120,4 @@ pivotName = "weeklyPivot"
         Array(False, False, False, False, False, False, False, False, False, False, False, False)
 
     Sheets("weekly").Visible = False
-'    Sheets("Budget").Activate
 End Sub
