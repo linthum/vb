@@ -37,14 +37,8 @@ ActiveSheet.Range("D1").Value = "Daily Cost"
 BudgetDate = CDate(Sheets("Budget").Range("C16").Value)
 EndDate = CDate(Sheets("Budget").Range("C17").Value)
 
-'Debug.Print BudgetDate
-
-
 nDays = dateDiff("d", BudgetDate, EndDate, vbUseSystemDayOfWeek, vbUseSystem) + 1
 lastCol = nDays + 1 + 3 ' empty column + B C D
-
-'Debug.Print nDays
-'Debug.Print lastCol
 
 For Each wks In Worksheets
     counter = 0
